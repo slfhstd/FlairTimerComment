@@ -36,7 +36,7 @@ def main(reddit, posts: dict):
                     except Exception as e:
                         print(f"Could not lock submission: {e}")
 
-                comment = reddit.submission(submission).reply(body=config.comment_message).mod.distinguish(sticky=True)
+                comment = reddit.submission(submission).reply(body=config.comment_message)
                 if getattr(config, 'distinguish_comment', False):
                     try:
                         sticky = getattr(config, 'distinguish_sticky', False)
