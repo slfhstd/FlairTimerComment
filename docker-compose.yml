@@ -4,6 +4,6 @@ services:
     container_name: bot-ftc-dev
     restart: unless-stopped
     volumes:
-      - /docker/data/flairtimercomment:/app
+      - /docker/data/flairtimercomment:/app/config
 
       

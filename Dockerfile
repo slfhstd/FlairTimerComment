@@ -5,6 +5,8 @@ WORKDIR /app
 COPY config.py .
 COPY flairtimercomment.py .
 
+RUN mkdir -p /app/config
+
 # Install dependencies
 RUN pip install --no-cache-dir praw 
 
