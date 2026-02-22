@@ -37,16 +37,15 @@ def main(reddit, posts: dict):
                         print(f"Could not lock submission: {e}")
 
                 comment = reddit.submission(submission).reply(body=config.comment_message)
-                if getattr(config, 'distinguish_comment', False):
-                    try:
-                        sticky = getattr(config, 'distinguish_sticky', False)
-                        if sticky:
-                            comment.mod.distinguish(how="yes", sticky=True)
-                        else:
-                            comment.mod.distinguish(how="yes")
-                        print(f"Distinguished comment (sticky={sticky})")
-                    except Exception as e:
-                        print(f"Could not distinguish comment: {e}")
+                try:
+                    sticky = getattr(config, 'distinguish_sticky', False)
+                    if sticky:
+                        comment.mod.distinguish(how="yes", sticky=True)
+                    else:
+                        comment.mod.distinguish(how="yes")
+                    print(f"Distinguished comment (sticky={sticky})")
+                except Exception as e:
+                    print(f"Could not distinguish comment: {e}")
                 print(f"Post {submission} has been flaired {config.flair_text} for {config.hours} hours, posted comment")
                 break
  
