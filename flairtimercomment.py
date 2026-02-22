@@ -10,7 +10,7 @@ def authentication():
             password = config.password,
             client_id = config.client_id,
             client_secret = config.client_secret,
-            user_agent = "Waiting For OP Flair Timer Running On MinecraftHelpModTeam")
+            user_agent = config.user_agent)
     print ("Authenticated as {}.".format(reddit.user.me()))
     return reddit
  
