@@ -2,7 +2,7 @@ username = ""
 password = ""
 client_id = ""
 client_secret = ""
-user_agent = "Waiting For OP Flair Timer Running On MinecraftHelpModTeam"
+user_agent = "Flair Timer Comment Bot"
  
 #Subreddits
 subreddit = "" # "INEEEEDIT" "Ofcoursethatsathing" "All"
