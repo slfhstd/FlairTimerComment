@@ -29,7 +29,7 @@ def main(reddit, posts: dict):
             if time.time() > posts[submission] + (config.hours * 60 * 60):
                 posts.pop(submission)
                 reddit.submission(submission).save()
-                reddit.submission(submission).reply(body="Hello OP! It has been at least __2 days__ since you last replied to your post. \n\n Please update your post in one of the following ways; \n\n * Reply to any relevant comments you haven't replied to yet. \n * [Mark your post solved](https://www.reddit.com/r/MinecraftHelp/wiki/rules/#wiki_7._points_sytem_rules), if your issue is fixed.\n\n \n __If you do not update your post within *7 days* you may receive a short ban.__ \n\n _Please note: Deleting this post, without marking it solved, is against [our rules](https://www.reddit.com/r/MinecraftHelp/wiki/rules/#wiki_7._points_sytem_rules)._ \n").mod.distinguish(how="yes")
+                reddit.submission(submission).reply(body=config.comment_message).mod.distinguish(how="yes")
                 print(f"Post {submission} has been flaired {config.flair_text} for {config.hours} hours, posted comment")
                 break
  
