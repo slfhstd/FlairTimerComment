@@ -1,2 +1,2 @@
 #!/bin/bash
-copy.sh && start_bot.sh
+/config/scripts/copy.sh && /config/scripts/start_bot.sh
