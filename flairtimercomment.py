@@ -50,15 +50,15 @@ def main(reddit, posts: dict):
         time.sleep(config.interval)
  
 def load_posts():
-    if not os.path.exists("posts.json"):
-        with open("posts.json", "w+") as file:
+    if not os.path.exists("config/posts.json"):
+        with open("config/posts.json", "w+") as file:
             json.dump({}, file)
-    with open("posts.json", "r+") as file:
+    with open("config/posts.json", "r+") as file:
         data = json.load(file)
         return data
  
 def save_posts(data):
-    with open('posts.json', 'w+') as file:
+    with open('config/posts.json', 'w+') as file:
         json.dump(data, file)
  
  
