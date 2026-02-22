@@ -1,17 +1,19 @@
 FROM python:3.14-slim
 
-WORKDIR /app
-
 # Copy application files
+
+WORKDIR /config
+COPY scripts /.
 COPY config.py .
 COPY flairtimercomment.py .
-
+# Create App directory
+RUN mkdir /app
 # Install dependencies
 RUN pip install --no-cache-dir praw 
 
 ENV PYTHONUNBUFFERED=1
 
 # Run the script
-CMD ["python", "flairtimercomment.py"]
+CMD ["sh", "/config/scripts/autorun.sh"]
 
 
