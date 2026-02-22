@@ -3,7 +3,7 @@ FROM python:3.14-slim
 # Copy application files
 
 WORKDIR /config
-COPY scripts /.
+COPY scripts ./scripts
 COPY config.py .
 COPY flairtimercomment.py .
 # Create App directory
