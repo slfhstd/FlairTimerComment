@@ -19,3 +19,11 @@ comment_message = "Hello OP! It has been at least __2 days__ since you last repl
 
 # Whether the bot should distinguish the posted comment (True/False)
 distinguish_comment = True
+
+# Whether the bot should lock the post after posting the comment (True/False)
+# Default is False to avoid accidental locking; set to True to enable locking.
+lock_post = False
+
+# Whether the distinguished comment should be stickied (True/False)
+# Some subreddits may require `True` to keep moderator comments visible.
+distinguish_sticky = False

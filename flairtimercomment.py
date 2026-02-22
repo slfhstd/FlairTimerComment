@@ -29,10 +29,18 @@ def main(reddit, posts: dict):
             if time.time() > posts[submission] + (config.hours * 60 * 60):
                 posts.pop(submission)
                 reddit.submission(submission).save()
-                comment = reddit.submission(submission).reply(body=config.comment_message)
+                # Optionally lock the post if configured
+                if getattr(config, 'lock_post', False):
+                    try:
+                        reddit.submission(submission).mod.lock()
+                    except Exception as e:
+                        print(f"Could not lock submission: {e}")
+
+                comment = reddit.submission(submission).reply(body=config.comment_message).mod.distinguish(sticky=True)
                 if getattr(config, 'distinguish_comment', False):
                     try:
-                        comment.mod.distinguish(how="yes")
+                        sticky = getattr(config, 'distinguish_sticky', False)
+                        comment.mod.distinguish(how="yes", sticky=sticky)
                     except Exception as e:
                         print(f"Could not distinguish comment: {e}")
                 print(f"Post {submission} has been flaired {config.flair_text} for {config.hours} hours, posted comment")
