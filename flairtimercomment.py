@@ -29,7 +29,12 @@ def main(reddit, posts: dict):
             if time.time() > posts[submission] + (config.hours * 60 * 60):
                 posts.pop(submission)
                 reddit.submission(submission).save()
-                reddit.submission(submission).reply(body=config.comment_message).mod.distinguish(how="yes")
+                comment = reddit.submission(submission).reply(body=config.comment_message)
+                if getattr(config, 'distinguish_comment', False):
+                    try:
+                        comment.mod.distinguish(how="yes")
+                    except Exception as e:
+                        print(f"Could not distinguish comment: {e}")
                 print(f"Post {submission} has been flaired {config.flair_text} for {config.hours} hours, posted comment")
                 break
  

@@ -16,3 +16,6 @@ searchlimit = 600 # Max: 1000, this should only be limited to save on resources.
 
 # Comment message to post on old posts
 comment_message = "Hello OP! It has been at least __2 days__ since you last replied to your post. \n\n Please update your post in one of the following ways; \n\n * Reply to any relevant comments you haven't replied to yet. \n * [Mark your post solved](https://www.reddit.com/r/MinecraftHelp/wiki/rules/#wiki_7._points_sytem_rules), if your issue is fixed.\n\n \n __If you do not update your post within *7 days* you may receive a short ban.__ \n\n _Please note: Deleting this post, without marking it solved, is against [our rules](https://www.reddit.com/r/MinecraftHelp/wiki/rules/#wiki_7._points_sytem_rules)._ \n"
+
+# Whether the bot should distinguish the posted comment (True/False)
+distinguish_comment = True
