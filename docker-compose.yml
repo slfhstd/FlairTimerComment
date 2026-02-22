@@ -1,0 +1,9 @@
+services:
+  app:
+    image: ghcr.io/slfhstd/flairtimercomment:v0.0.1
+    container_name: bot-ftc-dev
+    restart: unless-stopped
+    volumes:
+      - /docker/data/flairtimercomment:/app
+
+      
