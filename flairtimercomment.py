@@ -1,5 +1,4 @@
 import praw
-
 import praw
 import os
 import os.path
